@@ -23,7 +23,7 @@ public class Solution41 {
 
         static void namesorter() throws IOException
         {
-            //initialize a counter for the names
+            //initialize a counter for the names (follows the constraint requirement)
             int numofnames =0;
             try
             {
@@ -34,8 +34,8 @@ public class Solution41 {
 
 
 
-                //Read the input file.
-                File inputFile = new File("exercise41_input.txt");
+                //Read the input file, from the folder in the 'root' directory.
+                File inputFile = new File("data/exercise41_input.txt");
                 Scanner inputReader = new Scanner(inputFile);
 
                 // 2 Maps for Firstname and lastname
