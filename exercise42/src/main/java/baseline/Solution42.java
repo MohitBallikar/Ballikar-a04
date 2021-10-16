@@ -4,24 +4,63 @@
  */
 package baseline;
 
+import java.io.*;
+import java.util.Formatter;
+
 public class Solution42 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
+        //Calls the Parse Data File function/method.
         parseDataFile();
     }
 
-     static void parseDataFile() {
+    static void parseDataFile() throws IOException {
+        //ensures that the file is not overwritten
+        File newfile = new File("data/exercise42_output.txt");
+        newfile.delete();
+
+        //initializes a string as well as a formatter
+        String data = "";
+        Formatter fmt = new Formatter();
+
+        try {
+            //Define Write Output File.
+            FileWriter f = new FileWriter("data/exercise42_output.txt", true);
+            BufferedWriter b = new BufferedWriter(f);
+            PrintWriter pw = new PrintWriter(b);
+            //define the header for the file/output
+            pw.println("Last				First				Salary");
+            pw.println("----------------------------------------------");
+
+            BufferedReader inputreader;
+            inputreader = new BufferedReader(new FileReader("data/exercise42_input.txt"));
+            data = inputreader.readLine();
+
+            while (data != null) {
+                String[] tempArray = data.split(",");
+                fmt.format("%-20s%-20s%s\n", tempArray[0], tempArray[1], tempArray[2]);
+                //Read the next line
+                data = inputreader.readLine();
+            }
+
+            //Write to the output file.
+            pw.println(fmt);
+
+            //Close the file.
+            inputreader.close();
+            pw.flush();
+            //reads out the contents of the output file (may be compartmentalized into its own method)
+            BufferedReader in = new BufferedReader(new FileReader("data/exercise42_output.txt"));
+            String line;
+            while((line = in.readLine()) != null)
+            {
+                System.out.println(line);
+            }
+            //closes the file to ensure that any excess writing is not done and to prepare the "newfile"
+            in.close();
+
+        } catch (IOException e) {
+            System.out.println("File Error.\n");
+        }
     }
 }
-
-/*
-Construct a program that reads in the following data file
-(you will need to create this data file yourself;
-name it `exercise42_input.txt`)
-Process the records and display the results formatted as a table,
-evenly spaced, as shown in the example output.
-    Write your own code to parse the data. Don't use a CSV parser.
-
-    Similar I/O structure as 41 could be used to read the data, and possibly even print/format
-    Data must be parsed manually
-    Make sure that the printing follows the necessary requirements for formatting
- */
