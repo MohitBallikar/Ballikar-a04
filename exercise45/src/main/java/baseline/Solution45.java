@@ -1,24 +1,37 @@
+/*
+ *  UCF COP3330 Fall 2021 Assignment 4 Solutions
+ *  Copyright 2021 Mohit Ballikar
+ */
 package baseline;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Solution45 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        //Word Finder function called
         wordfinder();
-
     }
+    //reads and writes the file values, will separate into two parts
+    static void wordfinder() throws IOException {
+        //data, readers, and filewriters are intialized and defined
+        String data;
+        BufferedReader readinputfile = null;
+        FileWriter fw = new FileWriter("data/exercise45_output.txt", true);
+        try {
+            //Read the input file in a buffer.
+            readinputfile = new BufferedReader(new FileReader("data/exercise45_input.txt"));
 
-     static void wordfinder() {
+            while ((data = readinputfile.readLine()) != null) {
+                System.out.println(data);
+                data = data.replace("utilize", "use");
+                fw.write(data);
+            }
+            fw.close();
+        } catch (IOException e) {
+            //Do nothing.
+        }
     }
-}
-
-/*
-Given an input file named `exercise45_input.txt`, read the file and look for all occurrences of the word utilize.
-Replace each occurrence with use.
-Write the modified file to a new file.
-Prompt for the name of the output file.
-Write the output to a new file.
-
-    Will need to use file I/O to parse and create a new file in the data directory
-       BufferedReader(new FileReader("exercise45_input.txt"));
-       FileWriter("exercise45_output.txt", true);
-       Similar to past exercises
- */
+}//exceptions are used to ensure that any errors can be avoided or worked around
