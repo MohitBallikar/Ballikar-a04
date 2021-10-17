@@ -1,0 +1,24 @@
+@startuml
+class Solution42 {
+    main(String[])
+}
+Solution42 *--parseDataFile
+
+class parseDataFile{
+
+}
+parseDataFile *-- Formatter
+parseDataFile *-- FileWriter
+parseDataFile *-- BufferedWriter
+parseDataFile *-- PrintWriter
+parseDataFile *-- BufferedReader
+
+BufferedReader *-- FileReader
+
+class FileReader
+{
+data/exercise42_input.txt
+data/exercise42_output.txt
+}
+
+@enduml
