@@ -23,7 +23,7 @@ public class Solution45 {
         String outputFileName = "";
 
         try {
-            //Read the input file in a buffer.
+            //Read the input file in a buffer reader.
             readinputfile = new BufferedReader(new FileReader("data/exercise45_input.txt"));
 
             // output file is defined through user input
@@ -31,18 +31,15 @@ public class Solution45 {
             System.out.print("Please enter output File Name: ");
             outputFileName = outputfile.nextLine().trim();
 
-            //stringbuilder is used to ensue that the output is in the 'data' directory as per the instructions
-            StringBuilder str = new StringBuilder("data/");
-            str.append(outputFileName);
 
-
-            FileWriter fw = new FileWriter(String.valueOf(str), true);
+            //ensures that the correct directory is called
+            FileWriter fw = new FileWriter("data/" +outputFileName, true);
 
             //does the string replacement of 'utilize'
             while ((data = readinputfile.readLine()) != null) {
                 System.out.println(data);
                 data = data.replace("utilize", "use");
-                fw.write(data);
+                fw.write(data+"\n");
             }
             fw.close();
             outputfile.close();
