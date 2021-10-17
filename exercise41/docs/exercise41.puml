@@ -1,9 +1,9 @@
 @startuml
-class Application {
+class Solution41 {
     main(String[])
 }
 
-Application *-- nameSorter
+Solution41 *-- nameSorter
 
  class nameSorter{
  FileWriter()
