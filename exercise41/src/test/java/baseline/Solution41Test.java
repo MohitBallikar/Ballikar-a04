@@ -18,6 +18,6 @@ class Solution41Test
 
 }
 
-String actual =
+
 
 }
