@@ -8,30 +8,48 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Solution45 {
     public static void main(String[] args) throws IOException {
-        //Word Finder function called
+        //Calls Word Finder function/method
         wordfinder();
     }
-    //reads and writes the file values, will separate into two parts
+
     static void wordfinder() throws IOException {
-        //data, readers, and filewriters are intialized and defined
+        //strings and reader are initialized
         String data;
         BufferedReader readinputfile = null;
-        FileWriter fw = new FileWriter("data/exercise45_output.txt", true);
+        String outputFileName = "";
+
         try {
             //Read the input file in a buffer.
             readinputfile = new BufferedReader(new FileReader("data/exercise45_input.txt"));
 
+            // output file is defined through user input
+            Scanner outputfile = new Scanner(System.in);
+            System.out.print("Please enter output File Name: ");
+            outputFileName = outputfile.nextLine().trim();
+
+            //stringbuilder is used to ensue that the output is in the 'data' directory as per the instructions
+            StringBuilder str = new StringBuilder("data/");
+            str.append(outputFileName);
+
+
+            FileWriter fw = new FileWriter(String.valueOf(str), true);
+
+            //does the string replacement of 'utilize'
             while ((data = readinputfile.readLine()) != null) {
                 System.out.println(data);
                 data = data.replace("utilize", "use");
                 fw.write(data);
             }
             fw.close();
+            outputfile.close();
+            //closes the files and the respective writer
         } catch (IOException e) {
             //Do nothing.
         }
+
     }
-}//exceptions are used to ensure that any errors can be avoided or worked around
+}
