@@ -21,7 +21,7 @@ public class Solution41 {
             namesorter();
         }
 
-        static void namesorter() throws IOException
+        private static void namesorter() throws IOException
         {
             //initialize a counter for the names (follows the constraint requirement)
             int numofnames =0;
@@ -67,7 +67,6 @@ public class Solution41 {
 
                 //define a string for the names and split it to follow formatting
                 String[] sortedstring = sortedlastname.toString().split(",");
-
                 pw.println("Total of "+ numofnames+" names");
                 pw.println("-----------------");
                 //print out the required header formatted
@@ -96,6 +95,7 @@ public class Solution41 {
                             }
                         } else {
                             //defined twice to ensure data is properly represented, if not correct the first time
+                            //once again^ if the key has already been found
                             try {
                                 key = Integer.parseInt(tempkey);
                                 if (key > 0) {
@@ -112,7 +112,6 @@ public class Solution41 {
                         }
                     }
                 }
-
                 inputReader.close();
                 pw.flush();
             }

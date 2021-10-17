@@ -1,0 +1,16 @@
+@startuml
+class Application {
+    main(String[])
+}
+
+Application *-- nameSorter
+
+ class nameSorter{
+ FileWriter()
+ BufferedWriter()
+ PrintWriter()
+ File("data/exercise41_input.txt")
+ Scanner()
+ }
+
+@enduml
