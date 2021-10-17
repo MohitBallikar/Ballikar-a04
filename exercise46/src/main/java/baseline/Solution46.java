@@ -4,25 +4,101 @@
  */
 package baseline;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
 public class Solution46 {
-    public static void main(String[] args) {
+    public static void main(String[] args)  throws IOException
+    {
+        //Word Frequency Finder
         wordfrequencyfinder();
     }
 
-    static void wordfrequencyfinder() {
+    static void wordfrequencyfinder() throws IOException
+    {
+        // create an HashMap
+        HashMap<String, Integer> allwordcounts = new HashMap<>();
+        String data;
+        BufferedReader readinputfile = null;
+        int count = 0;
+        try
+        {
+            //Read the input file in a buffer.
+            readinputfile = new BufferedReader(new FileReader("data/exercise46_input.txt"));
+
+            //Gets each line till end of file is reached
+            while((data = readinputfile.readLine()) != null)
+            {
+                //Splits each line into words
+                String allwords[] = data.split(" ");
+                for (int i = 0; i < allwords.length ; i ++)
+                {
+                    count = 1;
+                    if (allwordcounts.get(allwords[i]) != null)
+                    {
+                        //Get the current value for the key and then update the indicator.
+                        int wordcount =allwordcounts.get(allwords[i]);
+                        allwordcounts.replace(allwords[i], wordcount+1);
+                    }
+                    else
+                    {
+                        allwordcounts.put(allwords[i],count);
+                    }
+                }
+            }
+
+            // Iterating HashMap through for loop for testing
+/*        for (Map.Entry<String, Integer> set : allwordcounts.entrySet())
+				{
+          // Printing all elements of a Map
+          System.out.println(set.getKey() + " = " + set.getValue());
+        }
+*/
+            //Sort the Map values descending
+            sortbykey(allwordcounts);
+
+        }
+        catch (IOException e)
+        {
+            //Do nothing.
+        }
+
+    }
+
+    //Add this standard function to Sort the values.
+
+    public static void sortbykey(HashMap<String, Integer> allwordcounts )
+    {
+        // TreeMap to store values of HashMap
+        TreeMap<String, Integer> sorted = new TreeMap<>();
+
+        // Copy all data from hashMap into TreeMap
+        sorted.putAll(allwordcounts);
+
+        // Display the TreeMap which is naturally sorted
+        for (Map.Entry<String, Integer> entry : sorted.entrySet())
+        {
+            //  System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+            //Get all Keys and lined them as Stars for the output.
+
+            //	System.out.println(entry.getKey()+":		"+ addStars(entry.getValue()));
+            System.out.printf("%-10s%-10s%n" , entry.getKey()+":" , addStars(entry.getValue()));
+        }
+    }
+
+    //Add stars as per the number and return back the String.
+    public static String addStars(int numberofstars)
+    {
+        String stringValue = "";
+        for (int i = 0 ; i < numberofstars ; i++)
+        {
+            stringValue = stringValue+"*";
+        }
+        return stringValue;
     }
 }
 
-/*
-Create a program that reads in a file named `exercise46_input.txt`
-and counts the frequency of words in the file.
-Then construct a histogram displaying the words and the frequency,
-and display the histogram to the screen.
-
-    Ensure that the most used word is at the top of the report and the least used words are at the bottom.
-
-    Will most definitely use loops to check for each term, as well as printing the histogram values.
-        Follow file I/O as per usual to read the file
-    Tests could check to see if the function(s) correctly display the values in descending order and are not hard-coded
-        May need to split up functions to make them easier to test or to optimize structure(s)
- */
