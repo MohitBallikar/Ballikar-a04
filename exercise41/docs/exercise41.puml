@@ -5,12 +5,19 @@ class Solution41 {
 
 Solution41 *-- nameSorter
 
- class nameSorter{
- FileWriter()
- BufferedWriter()
- PrintWriter()
- File("data/exercise41_input.txt")
- Scanner()
+ class File{
+ data/exercise41_input.txt
  }
+
+nameSorter *-- File
+nameSorter *-- FileWriter
+nameSorter *-- BufferedWriter
+nameSorter *-- PrintWriter
+nameSorter *-- BufferedReader
+nameSorter *-- Scanner
+
+class FileWriter{
+data/exercise41_output1.txt
+}
 
 @enduml

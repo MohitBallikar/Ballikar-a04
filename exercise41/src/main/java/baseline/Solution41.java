@@ -28,7 +28,7 @@ public class Solution41 {
             try
             {
                 //Open an output file for writing.
-                FileWriter f = new FileWriter("exercise41_output1.txt", true);
+                FileWriter f = new FileWriter("data/exercise41_output1.txt", true);
                 BufferedWriter b = new BufferedWriter(f);
                 PrintWriter pw = new PrintWriter(b);
 
