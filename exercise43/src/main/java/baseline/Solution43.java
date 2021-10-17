@@ -11,10 +11,10 @@ import java.io.FileOutputStream;
 
 public class Solution43 {
     public static void main(String[] args) {
-        websitegenerator();
+        websiteGenerator();
     }
 
-     static void websitegenerator() {
+     static void websiteGenerator() {
         //initialize strings and responses for comparison
          String sitename = "";
          String author = "";

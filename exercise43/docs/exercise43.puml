@@ -1,0 +1,33 @@
+@startuml
+class Solution43 {
+    main(String[])
+}
+Solution43 *--websiteGenerator
+
+class websiteGenerator{
+
+}
+
+websiteGenerator -- BufferedReader
+
+InputStreamReader -- File
+File <--> FileOutputStream
+BufferedReader -- InputStreamReader
+
+class InputStreamReader{
+sitename
+}
+class File
+{
+data/website or (sitename)
+    filename
+    data/sitename.html
+    data/sitename/css/
+    data/sitename/js/
+}
+
+class FileOutputStream{
+    filename
+}
+
+@enduml
