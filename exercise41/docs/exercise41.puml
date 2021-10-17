@@ -9,12 +9,12 @@ Solution41 *-- nameSorter
  data/exercise41_input.txt
  }
 
-nameSorter *-- File
-nameSorter *-- FileWriter
-nameSorter *-- BufferedWriter
-nameSorter *-- PrintWriter
-nameSorter *-- BufferedReader
-nameSorter *-- Scanner
+nameSorter -- File
+nameSorter -- FileWriter
+nameSorter -- BufferedWriter
+nameSorter -- PrintWriter
+nameSorter -- BufferedReader
+nameSorter -- Scanner
 
 class FileWriter{
 data/exercise41_output1.txt
