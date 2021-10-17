@@ -31,7 +31,7 @@ public class Products {
         return quantity;
     }
     //similar framework to above methods
-    public void setQuality(String quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 

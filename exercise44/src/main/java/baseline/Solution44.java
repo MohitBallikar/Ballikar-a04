@@ -53,7 +53,7 @@ class Solution44 {
                 productname = input.readLine();
 
 
-                //Search the product by looping through the arrat
+                //Search the product by looping through the array
 
                 for(Products products : productArray)
                 {

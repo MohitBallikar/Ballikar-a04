@@ -1,0 +1,35 @@
+@startuml
+class Solution44 {
+    main(String[])
+}
+Solution44 *--productSearch
+
+class productSearch{
+
+}
+class Products{
+getName()
+setName()
+getPrice()
+setPrice()
+getQuantity()
+setQuantity()
+}
+productSearch *-- Products
+productSearch -- readUsingBufferedReader
+readUsingBufferedReader -- BufferedReader
+readUsingBufferedReader -- FileReader
+
+class FileReader
+{
+data/exercise42_input.txt
+data/exercise42_output.txt
+}
+
+class BufferedReader
+{
+filename
+input
+}
+
+@enduml
