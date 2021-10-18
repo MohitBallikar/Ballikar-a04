@@ -2,13 +2,13 @@
 class Solution43 {
     main(String[])
 }
-Solution43 *--websiteGenerator
+Solution43 *--WebSiteGenerator
 
-class websiteGenerator{
+class WebSiteGenerator{
 
 }
 
-websiteGenerator -- BufferedReader
+WebSiteGenerator -- BufferedReader
 
 InputStreamReader -- File
 File <--> FileOutputStream
@@ -29,5 +29,4 @@ data/website or (sitename)
 class FileOutputStream{
     filename
 }
-
 @enduml
