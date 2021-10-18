@@ -7,9 +7,7 @@ package baseline;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Solution46 {
     public static void main(String[] args)  throws IOException
@@ -28,7 +26,7 @@ public class Solution46 {
         try
         {
             //Read the input file in a buffer.
-            readinputfile = new BufferedReader(new FileReader("data/exercise46_input.txt"));
+            readinputfile = new BufferedReader(new FileReader("exercise46_input.txt"));
 
             //Gets each line till end of file is reached
             while((data = readinputfile.readLine()) != null)
@@ -51,15 +49,35 @@ public class Solution46 {
                 }
             }
 
-            // Iterating HashMap through for loop for testing
-/*        for (Map.Entry<String, Integer> set : allwordcounts.entrySet())
-				{
-          // Printing all elements of a Map
-          System.out.println(set.getKey() + " = " + set.getValue());
-        }
-*/
             //Sort the Map values descending
-            sortbykey(allwordcounts);
+
+            Map<String,Integer> sortedValueMap = sortByValues(allwordcounts);
+
+            //LinkedHashMap preserve the ordering of elements in which they are inserted
+            LinkedHashMap<String, Integer> reverseSortedMap = new LinkedHashMap<>();
+            //Use Comparator.reverseOrder() for reverse ordering
+            sortedValueMap.entrySet()
+                    .stream()
+                    .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                    .forEachOrdered(x -> reverseSortedMap.put(x.getKey(), x.getValue()));
+
+            //	System.out.println("Reverse Sorted Map   : " + reverseSortedMap);
+            String saveoutputstring = reverseSortedMap.toString();
+
+            ///		System.out.println("*****saveoutputstring   : " + saveoutputstring);
+            int startindex  = saveoutputstring.indexOf("{");
+            int endindex  = saveoutputstring.indexOf("}");
+
+            String newstring = saveoutputstring.substring(startindex+1, endindex);
+            String[] arrayofwords = newstring.split(",");
+
+            for (int m = 0; m< arrayofwords.length ; m++)
+            {
+                //	System.out.printf("%-10s%n" , arrayofwords[m]);
+                String[] arrayofnames = arrayofwords[m].split("=");
+                System.out.printf("%-15s%-15s%n", arrayofnames[0].trim()+":" , addStars(Integer.parseInt(arrayofnames[1])));
+
+            }
 
         }
         catch (IOException e)
@@ -71,24 +89,6 @@ public class Solution46 {
 
     //Add this standard function to Sort the values.
 
-    public static void sortbykey(HashMap<String, Integer> allwordcounts )
-    {
-        // TreeMap to store values of HashMap
-        TreeMap<String, Integer> sorted = new TreeMap<>();
-
-        // Copy all data from hashMap into TreeMap
-        sorted.putAll(allwordcounts);
-
-        // Display the TreeMap which is naturally sorted
-        for (Map.Entry<String, Integer> entry : sorted.entrySet())
-        {
-            //  System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
-            //Get all Keys and lined them as Stars for the output.
-
-            //	System.out.println(entry.getKey()+":		"+ addStars(entry.getValue()));
-            System.out.printf("%-10s%-10s%n" , entry.getKey()+":" , addStars(entry.getValue()));
-        }
-    }
 
     //Add stars as per the number and return back the String.
     public static String addStars(int numberofstars)
@@ -100,5 +100,26 @@ public class Solution46 {
         }
         return stringValue;
     }
+
+    public static <K, V extends Comparable<V>> Map<K, V>
+    sortByValues(final Map<K, V> map) {
+        Comparator<K> valueComparator =
+                new Comparator<K>() {
+                    public int compare(K k1, K k2) {
+                        int compare =
+                                map.get(k1).compareTo(map.get(k2));
+                        if (compare == 0)
+                            return 1;
+                        else
+                            return compare;
+                    }
+                };
+
+        Map<K, V> sortedByValues =       new TreeMap<K, V>(valueComparator);
+
+        sortedByValues.putAll(map);
+        return sortedByValues;
+    }
+
 }
 

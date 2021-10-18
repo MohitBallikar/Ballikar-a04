@@ -1,0 +1,24 @@
+@startuml
+class Solution46 {
+    main(String[])
+}
+Solution46 *--wordfrequencyfinder
+
+class wordfrequencyfinder{
+data
+
+}
+
+wordfrequencyfinder -- BufferedReader
+wordfrequencyfinder -- FileReader
+wordfrequencyfinder <-- addStars
+
+class FileReader {
+exercise46_input.txt
+}
+
+
+
+
+
+@enduml
