@@ -2,16 +2,13 @@
 class Solution42 {
     main(String[])
 }
-Solution42 *--parseDataFile
+Solution42 *--ParseData
 
-class parseDataFile{
-
-}
-parseDataFile -- Formatter
-parseDataFile -- FileWriter
-parseDataFile -- BufferedWriter
-parseDataFile -- PrintWriter
-parseDataFile -- BufferedReader
+ParseData -- Formatter
+ParseData -- FileWriter
+ParseData -- BufferedWriter
+ParseData -- PrintWriter
+ParseData -- BufferedReader
 
 BufferedReader -- FileReader
 
