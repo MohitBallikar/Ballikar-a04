@@ -2,20 +2,16 @@
 class Solution46 {
     main(String[])
 }
-Solution46 *--wordfrequencyfinder
+Solution46 *--WordFrequencyFinder
 
-class wordfrequencyfinder{
+class WordFrequencyFinder{
 data
+find()
+addStars()
 
 }
 
-wordfrequencyfinder -- BufferedReader
-wordfrequencyfinder -- FileReader
-wordfrequencyfinder <-- addStars
 
-class FileReader {
-exercise46_input.txt
-}
 
 
 
