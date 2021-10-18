@@ -1,0 +1,30 @@
+@startuml
+class Solution45 {
+    main(String[])
+}
+Solution45 *--wordfinder
+
+class wordfinder{
+data
+
+}
+
+wordfinder -- BufferedReader
+wordfinder -- Scanner
+wordfinder -- FileReader
+wordfinder -- FileWriter
+FileReader <--> FileWriter
+class Scanner {
+output
+}
+class FileReader {
+outputFile
+}
+class FileWriter {
+outputFile
+}
+
+
+
+
+@enduml
