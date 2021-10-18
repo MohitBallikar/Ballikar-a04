@@ -5,7 +5,8 @@ class Solution44 {
 Solution44 *--ProductSearch
 
 class ProductSearch{
-
+psearch()
+readUsingBufferedReader()
 }
 class Products{
 getName()
@@ -15,11 +16,11 @@ setPrice()
 getQuantity()
 setQuantity()
 }
-ProductSearch -- psearch
-ProductSearch *-- Products
-ProductSearch -- readUsingBufferedReader
-readUsingBufferedReader -- BufferedReader
-readUsingBufferedReader -- FileReader
+
+ProductSearch -- Products
+
+ProductSearch -- BufferedReader
+ProductSearch -- FileReader
 
 class FileReader
 {

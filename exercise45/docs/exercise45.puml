@@ -2,17 +2,16 @@
 class Solution45 {
     main(String[])
 }
-Solution45 *--wordfinder
+Solution45 *--WordFinder
 
-class wordfinder{
+class WordFinder{
 data
-
+find()
 }
-
-wordfinder -- BufferedReader
-wordfinder -- Scanner
-wordfinder -- FileReader
-wordfinder -- FileWriter
+WordFinder -- BufferedReader
+WordFinder -- Scanner
+WordFinder -- FileReader
+WordFinder -- FileWriter
 FileReader <--> FileWriter
 class Scanner {
 output
