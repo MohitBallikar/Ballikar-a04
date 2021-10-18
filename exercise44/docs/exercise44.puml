@@ -2,9 +2,9 @@
 class Solution44 {
     main(String[])
 }
-Solution44 *--productSearch
+Solution44 *--ProductSearch
 
-class productSearch{
+class ProductSearch{
 
 }
 class Products{
@@ -15,15 +15,15 @@ setPrice()
 getQuantity()
 setQuantity()
 }
-productSearch *-- Products
-productSearch -- readUsingBufferedReader
+ProductSearch *-- Products
+ProductSearch -- readUsingBufferedReader
 readUsingBufferedReader -- BufferedReader
 readUsingBufferedReader -- FileReader
 
 class FileReader
 {
-data/exercise42_input.txt
-data/exercise42_output.txt
+data/exercise44_input.txt
+data/exercise44_output.txt
 }
 
 class BufferedReader
