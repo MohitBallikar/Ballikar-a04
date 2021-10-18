@@ -15,6 +15,7 @@ setPrice()
 getQuantity()
 setQuantity()
 }
+ProductSearch -- psearch
 ProductSearch *-- Products
 ProductSearch -- readUsingBufferedReader
 readUsingBufferedReader -- BufferedReader
