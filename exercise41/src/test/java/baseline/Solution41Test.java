@@ -6,7 +6,7 @@ class Solution41Test
 {
 @Test
     void readUnique(){
-    Solution41 app = new Solution41();
+    NameSorter app = new NameSorter();
 
     String expected = "Johnson, Jim        \n" +
             "Jones, Chris        \n" +

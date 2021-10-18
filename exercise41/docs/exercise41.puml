@@ -3,21 +3,7 @@ class Solution41 {
     main(String[])
 }
 
-Solution41 *-- nameSorter
-
- class File{
- data/exercise41_input.txt
- }
-
-nameSorter -- File
-nameSorter -- FileWriter
-nameSorter -- BufferedWriter
-nameSorter -- PrintWriter
-nameSorter -- BufferedReader
-nameSorter -- Scanner
-
-class FileWriter{
-data/exercise41_output1.txt
-}
+Solution41 *-- NameSorter
+Solution41 *-- WriteOutputFile
 
 @enduml
